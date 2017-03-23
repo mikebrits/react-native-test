@@ -2,29 +2,44 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight,
+    Navigator
 } from 'react-native';
 
-const Header = (props) => (
-    <View style={styles.view}>
-        <Text style={styles.text}>
-            {props.headerText}
-        </Text>
-    </View>
-);
+import {Link} from 'react-router-native'
+import {Backstack} from '../utils/Navigation/Backstack';
+
+const Header = (props) => {
+    console.log('Header', props);
+    return (
+        <Navigator.NavigationBar
+            routeMapper={{
+                LeftButton: (route, navigator, index, navState) =>
+                { return (<Text>&lt;</Text>); },
+                RightButton: (route, navigator, index, navState) =>
+                { return (<Text> </Text>); },
+                Title: (route, navigator, index, navState) =>
+                { return (<Text>{props.headerText}</Text>); },
+            }}
+            style={styles.view}
+        />
+    )
+};
 
 const styles = StyleSheet.create({
-    view : {
-        paddingTop : 15,
-        alignItems : 'center',
-        justifyContent : 'center',
-        backgroundColor : '#3D85C7',
-        height : 60
+    view: {
+        paddingTop: 15,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        backgroundColor: '#3D85C7',
+        height: 60
     },
 
-    text : {
-        fontSize : 15,
-        color : 'white'
+    text: {
+        fontSize: 15,
+        color: 'white'
     }
 });
 

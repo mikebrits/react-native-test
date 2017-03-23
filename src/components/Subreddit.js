@@ -1,22 +1,27 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import BasePage from './BasePage';
+import BasePage from './BasePostPage';
 import {Reddit} from '../utils/API/RedditAPI';
 import {observer} from 'mobx-react/native';
 import {observable} from 'mobx';
+import { Actions } from 'react-native-router-flux';
 
 @observer
 class Subreddit extends BasePage {
 
-    subreddit = this.props.match.params.subreddit;
+    subreddit = this.props.subreddit;
     @observable subredditInfo;
 
     componentWillMount() {
+        console.log("Subreddit",  this.props.subreddit);
         super.componentWillMount();
-        Reddit.getSubredditInfo('r/' + this.subreddit).then(
+        Reddit.getSubredditInfo(this.subreddit).then(
             val => {
-                console.log(val);
+
                 this.subredditInfo = val.data;
+                this.pageName = this.subredditInfo.display_name;
+                Actions.refresh({title : this.pageName});
+
             }
         );
     }
@@ -27,9 +32,6 @@ class Subreddit extends BasePage {
                 {
                     this.subredditInfo ?
                     <View>
-                        <Text>
-                            {this.subredditInfo.display_name}
-                        </Text>
                         {super.render()}
                     </View>
                         :
@@ -43,7 +45,7 @@ class Subreddit extends BasePage {
     }
 
     getContent() {
-        super.getContent({subreddit: 'r/' + this.subreddit});
+        super.getContent({subreddit: this.subreddit});
     }
 
 }

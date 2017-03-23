@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {observer} from 'mobx-react/native';
-import BasePage from './BasePage'
+import BasePostPage from './BasePostPage'
 
 @observer
-class HomePage extends BasePage {
+class HomePage extends BasePostPage {
 
     render(){
         return (
             <View>
-                <Text>Home</Text>
                 {super.render()}
             </View>
         )

@@ -11,8 +11,7 @@ import {
 import _ from 'lodash';
 import {observer} from 'mobx-react/native';
 import {observable} from 'mobx';
-
-import { Link } from 'react-router-native'
+import { Actions } from 'react-native-router-flux';
 
 
 @observer
@@ -32,33 +31,42 @@ class PostList extends Component {
             >
                 {_.map(this.props.posts, (post, index) => {
                     let thumbnail;
-                    switch(post.data.thumbnail){
+                    switch (post.data.thumbnail) {
                         case 'self':
 
                             break;
-                        case 'image': break;
-                        case 'default' : break;
+                        case 'image':
+                            break;
+                        case 'default' :
+                            break;
                         default:
                             thumbnail = post.data.thumbnail;
                             break;
                     }
                     return (
-                        <View  key={index}
-                               style={styles.post}
+                        <View key={index}
+                              style={styles.post}
                         >
                             {
                                 thumbnail &&
-                                    <Image
-                                        style={{width: '100%', height: 100}}
-                                        source={{uri: thumbnail}}
-                                    />
+                                <Image
+                                    style={{width: '100%', height: 100}}
+                                    source={{uri: thumbnail}}
+                                />
                             }
 
                             <View style={styles.postContent}>
                                 <Text style={styles.postTitle}>{post.data.title}</Text>
-                                <Link to={post.data.subreddit_name_prefixed}>
-                                    <Text>{post.data.subreddit_name_prefixed}</Text>
-                                </Link>
+                                <Text
+                                    style={styles.subredditLink}
+                                    onPress={
+                                        () => {
+                                            Actions.subreddit({subreddit : post.data.subreddit_name_prefixed})
+                                        }
+                                    }
+                                >
+                                    {post.data.subreddit_name_prefixed}
+                                </Text>
                             </View>
 
 
@@ -79,19 +87,24 @@ const styles = StyleSheet.create({
     post: {
         marginBottom: 8,
         backgroundColor: 'white',
-        borderRadius : 5,
-        overflow : 'hidden'
+        borderRadius: 5,
+        overflow: 'hidden'
     },
 
-    postTumbnail : {
+    postTumbnail: {
         //marginBottom: 8
     },
 
-    postContent : {
+    postContent: {
         padding: 15
     },
 
-    postTitle : {
+    subredditLink : {
+        fontSize : 12,
+        color : 'blue'
+    },
+
+    postTitle: {
         fontSize: 13,
     }
 });
