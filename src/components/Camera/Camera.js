@@ -5,10 +5,13 @@ import {
     StyleSheet,
     Text,
     TouchableHighlight,
+    CameraRoll,
     View
 } from 'react-native';
+import PropTypes from 'prop-types';
+
 import Camera from 'react-native-camera';
-import Header from './Header';
+import { Actions } from 'react-native-router-flux';
 
 class CameraComponent extends Component {
     render() {
@@ -21,6 +24,7 @@ class CameraComponent extends Component {
                     style={styles.preview}
                     aspect={"fill"}
                     defaultOnFocusComponent={false}
+                    captureTarget={Camera.constants.CaptureTarget.disk}
                 >
                     <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
                 </Camera>
@@ -32,10 +36,17 @@ class CameraComponent extends Component {
         const options = {};
         //options.location = ...
         this.camera.capture({metadata: options})
-            .then((data) => console.log(data))
+            .then((data) => {
+                console.log(data);
+                Actions.cameraPreview({image : data.path, onSave : this.props.onSave});
+            })
             .catch(err => console.error(err));
     }
 }
+
+CameraComponent.propTypes = {
+    onSave : PropTypes.func.isRequired
+};
 
 export default CameraComponent;
 

@@ -7,32 +7,17 @@
 import React, {Component} from 'react';
 import {
     AppRegistry,
-    StyleSheet,
-    View,
-
 } from 'react-native';
 
-import Routes from './src/Routes';
+
+import Index from './src/Index';
 
 class NativeTest extends Component {
 
   render() {
-    return (
-        <View style={styles.container}>
-          <Routes/>
-        </View>
-    );
+    return  <Index/>;
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#eaeaea',
-  }
-});
 
 export default NativeTest;
 

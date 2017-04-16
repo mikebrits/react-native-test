@@ -40,7 +40,6 @@ class BasePostPage extends BasePage {
     getContent(opts) {
         Reddit.getPosts({filter:this.filter, ...opts}).then(
             val => {
-                console.log('Val', val);
                 this.posts = val.data.children;
                 this.refreshing = false;
             },
@@ -60,7 +59,8 @@ class BasePostPage extends BasePage {
 
 const styles = StyleSheet.create({
     view : {
-        paddingTop : 65,
+        paddingTop : 60,
+        // paddingBottom: 60,
         backgroundColor: '#eaeaea',
     }
 });
