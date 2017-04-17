@@ -2767,6 +2767,10 @@ mobx@^3.1.7:
   version "3.1.7"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.1.7.tgz#910c01f6e2f7e88ec47baabefee5fe667d37ac00"
 
+module-resolver@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/module-resolver/-/module-resolver-1.0.0.tgz#d412c0b66e08588cd39347a60c3c818bc9119fb5"
+
 moment@2.x.x, moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
@@ -3225,6 +3229,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-action-button@^2.6.8:
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/react-native-action-button/-/react-native-action-button-2.6.8.tgz#9da83f646ae664ebf0a4c9652c58c73b4db2997d"
+
 "react-native-camera@git+https://github.com/lwansbrough/react-native-camera.git":
   version "0.6.0"
   resolved "git+https://github.com/lwansbrough/react-native-camera.git#98de15cf9a250dd667e7459f5378e4dfe6a60f3c"
@@ -3239,6 +3247,10 @@ react-native-experimental-navigation@0.26.x:
     clamp "^1.0.1"
     fbjs "^0.8.1"
     react-addons-pure-render-mixin "^15.0.2"
+
+react-native-maps@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.14.0.tgz#f0b928f0bef5036472dcd8175f14838884962cad"
 
 react-native-material-kit@^0.4.1:
   version "0.4.1"
@@ -3257,6 +3269,10 @@ react-native-router-flux@^3.38.0:
 react-native-signature-capture@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/react-native-signature-capture/-/react-native-signature-capture-0.4.5.tgz#eea3cffdf7765986893f322854026cc74b89586d"
+
+react-native-signature-pad@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-signature-pad/-/react-native-signature-pad-0.0.8.tgz#65b43fd7d6606e272e5ca29e8eee26a942fb8d33"
 
 react-native-tabs@^1.0.9:
   version "1.0.9"
@@ -4111,7 +4127,7 @@ utils-merge@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
-uuid@^3.0.0:
+uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 

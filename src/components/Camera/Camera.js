@@ -4,12 +4,12 @@ import {
     Dimensions,
     StyleSheet,
     Text,
-    TouchableHighlight,
+    TouchableOpacity,
     CameraRoll,
     View
 } from 'react-native';
 import PropTypes from 'prop-types';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import Camera from 'react-native-camera';
 import { Actions } from 'react-native-router-flux';
 
@@ -26,7 +26,10 @@ class CameraComponent extends Component {
                     defaultOnFocusComponent={false}
                     captureTarget={Camera.constants.CaptureTarget.disk}
                 >
-                    <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                    <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.captureButton}>
+                        <Icon name="ios-camera" style={styles.actionButtonIcon}/>
+                    </TouchableOpacity>
+
                 </Camera>
             </View>
         );
@@ -67,5 +70,21 @@ const styles = StyleSheet.create({
         color: '#000',
         padding: 10,
         margin: 40
-    }
+    },
+    captureButton : {
+        backgroundColor : 'transparent',
+        borderRadius: 100,
+        borderWidth : 2,
+        borderColor : 'white',
+        width : 65,
+        height : 65,
+        marginBottom: 16,
+        alignItems : 'center',
+        justifyContent : 'center'
+    },
+    actionButtonIcon: {
+        fontSize: 30,
+        height: 32,
+        color: 'white',
+    },
 });
