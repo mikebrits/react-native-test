@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Camera from 'react-native-camera';
 import { Actions } from 'react-native-router-flux';
 
+
 class CameraComponent extends Component {
     render() {
         return (
@@ -41,7 +42,7 @@ class CameraComponent extends Component {
         this.camera.capture({metadata: options})
             .then((data) => {
                 console.log(data);
-                Actions.cameraPreview({image : data.path, onSave : this.props.onSave});
+                Actions['cameraPreview']({image : data.path, onSave : this.props.onSave});
             })
             .catch(err => console.error(err));
     }
@@ -57,6 +58,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
+        // height : '100%',
+        // width : '100%',
+        // position : 'absolute',
+        // top : 0,
+        // left : 0
     },
     preview: {
         flex: 1,

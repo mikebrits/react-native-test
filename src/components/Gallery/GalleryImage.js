@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     galleryImageWrapper: {
         width: '29%',
         aspectRatio: 1,
-        margin: 8
+        margin: 8,
+        backgroundColor : '#dddddd'
     },
     galleryImage : {
         width : '100%',

@@ -47,6 +47,7 @@ class CameraComponent extends Component {
                             notes: this.imageNote,
                             ...this.coords
                         });
+                        //Actions.dismiss();
                     }}>
                         <Text>Save</Text>
                     </TouchableOpacity>
