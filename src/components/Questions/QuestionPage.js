@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, ScrollView} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
+import {QuestionFactory} from './QuestionFactory';
 
 class QuestionPage extends Component {
 
@@ -16,18 +17,18 @@ class QuestionPage extends Component {
             <ScrollView>
                 <View style={styles.container}>
                     <View>
-                        <Text>
-                            {this.props.content}
-                        </Text>
+                        {
+                            this.props.content.questions.map((question, index) => {
+                                return QuestionFactory.getQuestion(question.type)({key: index, ...question.options})
+                            })
+                        }
                     </View>
                     <TouchableOpacity
                         onPress={() => this.props.onNext(this.props.pageNumber + 1)}
                         style={styles.nextButton}
                     >
                         <Text style={{color: 'white'}}>
-                            {
-                                this.props.nextButtonText || "Next"
-                            }
+                            { this.props.nextButtonText || "Next" }
                         </Text>
                     </TouchableOpacity>
 
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     },
     nextButton: {
         padding: 16,
-        marginTop : 16,
+        marginTop: 16,
         width: 200,
         alignSelf: 'center',
         backgroundColor: '#3498DB',
