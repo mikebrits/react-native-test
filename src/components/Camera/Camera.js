@@ -42,14 +42,14 @@ class CameraComponent extends Component {
         this.camera.capture({metadata: options})
             .then((data) => {
                 console.log(data);
-                Actions['cameraPreview']({image : data.path, onSave : this.props.onSave});
+                Actions['cameraPreview']({image : data.path, onFinish : this.props.onFinish});
             })
             .catch(err => console.error(err));
     }
 }
 
 CameraComponent.propTypes = {
-    onSave : PropTypes.func.isRequired
+    onFinish : PropTypes.func.isRequired
 };
 
 export default CameraComponent;

@@ -39,10 +39,10 @@ class CameraComponent extends Component {
         );
         Actions.refresh({
             renderRightButton: () => (
-                this.props.onSave ?
+                this.props.onFinish ?
                     <TouchableOpacity onPress={() => {
 
-                        this.props.onSave({
+                        this.props.onFinish({
                             path: this.props.image,
                             notes: this.imageNote,
                             ...this.coords

@@ -22,7 +22,7 @@ class Gallery extends Component {
             title: "Gallery"
         });
 
-        // Images.clear();
+        //Images.clear();
     }
 
     render() {
@@ -64,11 +64,11 @@ class Gallery extends Component {
     };
 
     goToCamera = () => {
-        Actions['camera']({onSave: this.saveToGallery})
+        Actions['camera']({onFinish: this.saveToGallery})
     };
 
     goToSignature = () => {
-        Actions['signature']({onSave: this.saveToGallery})
+        Actions['signature']({onFinish: this.saveToGallery})
     };
 
     goToSurvey = () => {

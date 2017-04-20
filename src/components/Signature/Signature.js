@@ -15,7 +15,7 @@ class Signature extends Component{
             renderRightButton: () => (
                 <TouchableHighlight onPress={() => {
                     if(this.signature)
-                        this.props.onSave(this.signature)
+                        this.props.onFinish(this.signature)
                     else
                         alert('No Signature Set')
                 }}>

@@ -6,24 +6,16 @@ class ImagesModel extends BaseModel {
         super();
         this.schema = {
             name: 'Image',
+            primaryKey : 'id',
             properties: {
-                id: {type: 'string'},
+                ...this.baseFields,
                 path: {type: 'string', optional: true},
                 notes: {type: 'string', optional: true},
                 lat: {type: 'double', optional: true},
                 lon: {type: 'double', optional: true},
-                timestamp: {type: 'date'}
             }
         }
     }
-
-    create(options) {
-        super.create({
-            ...options,
-            timestamp : new Date()
-        });
-    }
-
 }
 
 export let Images = new ImagesModel();

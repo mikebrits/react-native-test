@@ -32,6 +32,19 @@ export default {
                             label : 'Test Text Question Too',
                             placeholder: 'Please enter something'
                         }
+                    },
+                    {
+                        type : 'text',
+                        options : {
+                            label : 'Test Text Question Three',
+                            placeholder: 'Please enter something'
+                        }
+                    },
+                    {
+                        type : 'text',
+                        options : {
+                            label : 'Test Text Question Four',
+                        }
                     }
                 ]
             }

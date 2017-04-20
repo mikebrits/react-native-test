@@ -1,6 +1,13 @@
 import uuid from 'uuid';
 class BaseModel {
 
+
+    baseFields = {
+        id: {type: 'string'},
+        added_at: {type: 'date'},
+        edited_at: {type: 'date'},
+    };
+
     setRealm(realm){
         this.realm = realm;
     }
@@ -9,6 +16,7 @@ class BaseModel {
         this.realm.write(() => {
             this.realm.create(this.schema.name, {
                 id: uuid.v4(),
+                timestamp : new Date(),
                 ...fields
             });
 
