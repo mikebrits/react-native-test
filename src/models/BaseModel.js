@@ -16,7 +16,8 @@ class BaseModel {
         this.realm.write(() => {
             this.realm.create(this.schema.name, {
                 id: uuid.v4(),
-                timestamp : new Date(),
+                added_at : new Date(),
+                edited_at : new Date(),
                 ...fields
             });
 

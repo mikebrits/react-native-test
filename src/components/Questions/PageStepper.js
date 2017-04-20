@@ -20,6 +20,7 @@ class PageStepper {
             title: page.title,
             content: page.content,
             pageNumber : this.currentPage,
+            totalPages : this.totalPages,
             nextButtonText: this.currentPage == this.totalPages ? 'Finish' : 'Next',
             onNext: this.goToPage
         })
